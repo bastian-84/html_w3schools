@@ -129,11 +129,33 @@
     <br />
     <h2>HTML API</h2>
     <h3>Coordinate example</h3>
+    <p>Uncomment script.js line (23)</p>
     <div id='demoAnker1'></div>
     <br />
 
+    <h3>Drad and Drop</h3>
+    <div 
+        id='div1'
+        ondrop='fnDrop(event)'
+        ondragover="fnAllowDrop(event)"
+    >
+        <img 
+            src='./assets/img/img_w3slogo.gif' 
+            draggable="true"
+            ondragstart="fnDrag(event)"
+            id='drag1'
+            width='88'
+            height='31'
+        />    
+    </div>
+    <div 
+        id='div2'
+        ondrop='fnDrop(event)'
+        ondragover="fnAllowDrop(event)"
+    ></div>
     <br />
-
+    <h3>Web session storage</h3>
+    
     <br />
     
     <br />

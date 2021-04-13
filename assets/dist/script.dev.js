@@ -1,5 +1,8 @@
 "use strict";
 
+// ====================================================== //
+// ================== HTML geo location ================= //
+// ====================================================== //
 var sPoint1 = document.getElementById('demoAnker1');
 
 var fnShowPosition = function fnShowPosition(paramPosition) {
@@ -17,5 +20,22 @@ var fnGetLocation = function fnGetLocation() {
     sPoint1.innerHTML = "Geolocation isn't avaiable at your broser/settings";
   }
 };
+/* fnGetLocation(); */
+// ##################################################################### //
+// ###################### HTML Drag and drop image ##################### //
+// ##################################################################### //
 
-fnGetLocation();
+
+var fnAllowDrop = function fnAllowDrop(paramEv) {
+  paramEv.preventDefault();
+};
+
+var fnDrag = function fnDrag(paramEv) {
+  paramEv.dataTransfer.setData("placeHolderString", paramEv.target.id);
+};
+
+var fnDrop = function fnDrop(paramEv) {
+  paramEv.preventDefault();
+  var data = paramEv.dataTransfer.getData("placeHolderString");
+  paramEv.target.appendChild(document.getElementById(data));
+};
