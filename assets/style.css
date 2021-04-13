@@ -1,0 +1,15 @@
+body {
+  background: black;
+  color: white;
+}
+a {
+  color: grey;
+}
+a:hover {
+  color: white;
+}
+sub,
+sup,
+cite {
+  background-color: #444;
+}
