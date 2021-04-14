@@ -14,6 +14,7 @@ var fnShowPosition = function fnShowPosition(paramPosition) {
 
 var fnGetLocation = function fnGetLocation() {
   if (navigator.geolocation) {
+    // Wenn geolocation is TRUE
     console.log("fnGetLocation() works");
     navigator.geolocation.getCurrentPosition(fnShowPosition);
   } else {
@@ -38,4 +39,40 @@ var fnDrop = function fnDrop(paramEv) {
   paramEv.preventDefault();
   var data = paramEv.dataTransfer.getData("placeHolderString");
   paramEv.target.appendChild(document.getElementById(data));
+}; // ##################################################################### //
+// ############################ Web Storage ############################ //
+// ##################################################################### //
+
+
+if (typeof Storage !== 'undefined') {
+  // Wenn supported...
+  // Store
+  localStorage.setItem('lastname', 'Redfield'); // Retrieve
+
+  document.getElementById('sResult1').innerHTML = localStorage.getItem('lastname');
+} else {
+  document.getElementById('sResult1').innerHTML = 'Your browser does not support Web Storage.';
+} // ##################################################################### //
+// ##################### Web Storage mit clickcount #################### //
+// ##################################################################### //
+
+
+var sResult2 = document.getElementById('sResult2');
+
+var fnClickCounter = function fnClickCounter() {
+  if (typeof Storage !== 'undefined') {
+    if (localStorage.clickcount) {
+      // wenn clickcount ist vorhanden
+      localStorage.clickcount = Number(localStorage.clickcount) + 1;
+    } else {
+      localStorage.clickcount = 1;
+    }
+
+    sResult2.innerHTML = 'Clicked [' + localStorage.clickcount + '] times.';
+  } else {
+    sResult2.innerHTML = 'Your browser does not support Web Storage.';
+  }
 };
+
+var sButton1 = document.getElementById('button1');
+sButton1.addEventListener('click', fnClickCounter);

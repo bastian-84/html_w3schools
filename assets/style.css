@@ -22,3 +22,6 @@ cite {
   margin: 10px;
   padding: 10px;
 }
+.clearFloat {
+  clear: both;
+}
